@@ -27,44 +27,13 @@ function mostrarTable(data) {
     document.getElementById('tbody').innerHTML = html;    
 }
 
-function cargarInfeccion(url = "https://corona.lmao.ninja/countries") {
-    fetch(url)
-      .then(function(res) {
-        return res.json();
-      })
-      .then(function(data) {
-        mostrarTable(data);        
-      })
-      .catch(function(error) {
-          console.log(error);
-      });
-  }
-
-function cargarInfeccion2(url,callback = (data)) {
-  fetch(url)
-    .then(res => res.json())
-    .then(data => callback(data))
-    .catch(error => console.log(error))
-}
-
 document.addEventListener("DOMContentLoaded", function() {
   initApp();
 });
 
 function clickTabla() {
     var rows = document.getElementsByTagName("td");
-    // for (var i = 0; i < rows.length; i++)
-    // {
-    //     rows[i].onclick = function() {
 
-    //         let urlx = 'https://corona.lmao.ninja/countries/';
-    //         urlx += this.innerText;
-
-    //         getDatosAsync(urlx)
-    //           .then(data => mostrarPais(data));
-    //     }
-    // }
-      
     rows.forEach( row => {
       row.onclick = function() {
         let urlx = "https://corona.lmao.ninja/countries/";
@@ -95,9 +64,11 @@ function procesar() {
 
   getDatosAsync('https://coronavirus-19-api.herokuapp.com/all')
     .then(data2 => modificarCasosGlobales(data2));
+
+  getDatosAsync("https://corona.lmao.ninja/countries")
+    .then(data3 => mostrarTable(data3));
 }
 
 function initApp() {
-  cargarInfeccion();
   procesar();
 }
