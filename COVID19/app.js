@@ -1,7 +1,9 @@
 const formulario = document.getElementById("cobid-19");
-let dd;
+document.getElementById('table').addEventListener('click', clickTabla);
 
 function mostrarPais(data) {
+    console.log(data);
+
     document.getElementById('pais').innerText = data.country
     document.getElementById('paisFoto').src  = data.countryInfo["flag"];
     document.getElementById('muertos').innerText = data.deaths;
@@ -9,7 +11,7 @@ function mostrarPais(data) {
     document.getElementById('recumerados').innerText = data.recovered;
     document.getElementById('critico').innerText = data.critical;
     document.getElementById('muerteReportada').innerText = + data.todayCases;
-    console.log(data);
+
     
 }
 
@@ -29,7 +31,6 @@ function mostrarTable(data) {
     document.getElementById('tbody').innerHTML = html;    
 }
 
-
 function cargarInfeccion(url = "https://corona.lmao.ninja/countries") {
 
     fetch(url)
@@ -42,90 +43,43 @@ function cargarInfeccion(url = "https://corona.lmao.ninja/countries") {
       .catch(function(error) {
           console.log(error);
       });
-    
   }
+
+
+function cargarInfeccion2(url,callback = (data)) {
+  fetch(url)
+    .then(res => res.json())
+    .then(data => callback(data))
+    .catch(error => console.log(error))
+}
 
 document.addEventListener("DOMContentLoaded", function() {
   initApp();
 });
 
-function initApp() {
-    cargarInfeccion();
-    Arranca();
-    casosGlobales();
-}
-//*///
-
 function clickTabla() {
-    let x = '';
-
     var rows = document.getElementsByTagName("td");
-    for (var i = 0; i < rows.length; i++)
-    {
-        rows[i].onclick = function() {
+    // for (var i = 0; i < rows.length; i++)
+    // {
+    //     rows[i].onclick = function() {
 
-            var urlx = 'https://corona.lmao.ninja/countries/';
-            urlx += this.innerText;
+    //         let urlx = 'https://corona.lmao.ninja/countries/';
+    //         urlx += this.innerText;
 
+    //         getDatosAsync(urlx)
+    //           .then(data => mostrarPais(data));
+    //     }
+    // }
+      
+    rows.forEach( row => {
+      row.onclick = function() {
+        let urlx = 'https://corona.lmao.ninja/countries/';
+        urlx += this.innerText;
 
-            fetch(urlx)
-            .then(function(res) {
-              return res.json();
-            })
-            .then(function(data) {
-              mostrarPais(data);        
-            })
-            .catch(function(error) {
-                console.log(error);
-            });
-
-
-        }
-
-    }
-    
-
-    // urlx = urlx.concat('https://corona.lmao.ninja/countries/' + urlx;
-
-
-}
-
-function Arranca() {
-    let x = '';
-
-    var urlx = 'https://corona.lmao.ninja/countries/Dominican Republic';
-
-
-    fetch(urlx)
-    .then(function(res) {
-      return res.json();
-    })
-    .then(function(data) {
-      mostrarPais(data);        
-    })
-    .catch(function(error) {
-        console.log(error);
+        getDatosAsync(urlx)
+          .then(data => mostrarPais(data));
+      }
     });
-
-
-}
-
-function casosGlobales() {
-  let x = '';
-
-  var urlx = 'https://coronavirus-19-api.herokuapp.com/all';
-
-
-  fetch(urlx)
-  .then(function(res) {
-    return res.json();
-  })
-  .then(function(data) {
-    modificarCasosGlobales(data);        
-  })
-  .catch(function(error) {
-      console.log(error);
-  });
 }
 
 function modificarCasosGlobales(data) {
@@ -134,6 +88,25 @@ function modificarCasosGlobales(data) {
   document.getElementById('recumeradosGlobales').innerText = data.recovered;
 }
 
+async function getDatosAsync(url) {
+  let response = await fetch(url);
+  let data = await response.json();
+  return data;
+}
 
-document.getElementById('table').addEventListener('click', clickTabla);
+function procesar() {
+  getDatosAsync("https://corona.lmao.ninja/countries/Dominican Republic")
+  .then(data => mostrarPais(data))
+  .catch(error => console.log(error));
 
+  getDatosAsync('https://coronavirus-19-api.herokuapp.com/all')
+    .then(data2 => modificarCasosGlobales(data2));
+
+}
+
+function initApp() {
+  cargarInfeccion();
+  // cargarInfeccion2('https://corona.lmao.ninja/countries/Dominican Republic',mostrarPais(data));
+  procesar();
+
+}
