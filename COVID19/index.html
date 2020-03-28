@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="es" class="full-height">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <!-- Font Awesome -->
+<link rel="stylesheet" href="/COVID19/css/style.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.1/css/mdb.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+    
+    <div class="container my-3">
+        <div class="row justify-content-center rounded">
+            <div class="col-12">
+                <div class="vista">
+                    <div class="foto text-center">
+                        <img id="paisFoto" class="rounded-circle shadow" width="150px" height="150px" src="" alt="">
+                        <h2 id="pais" class="m-2" style="text-transform: uppercase;"></h2>
+                    </div>
+                    <div class="detalle text-center rounded p-2 bg-dark row">
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <h4 class="text-white">Infectados</h4>
+                            <h4 id="infectados" class="text-white"></h4>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <h4 class="text-white">Muertos</h4>
+                            <h4 id="muertos" class="text-white"></h4>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <h4 class="text-white">Recuperados</h4>
+                            <h4 id="recumerados" class="text-white"></h4>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <h4 class="text-white">Estado Critico</h4>
+                            <h4 id="critico" class="text-white"></h4>
+                        </div>
+                    </div>
+                    <h3 class="text-center text-muted pt-2">CASOS REPORTADOS EN ESTA SEMANA HOY 
+                        <br>
+                         <span id="muerteReportada">0</span>
+                    </h3>
+                    <div class="detalle text-center text-danger rounded p-2 bg-dark row">
+                        <div class="col-12">
+                            <h3 class="text-danger">Caslso Globales</h3>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <h4>Infectados</h4>
+                            <h4 id="infectadosGlobales" class="text-white"></h4>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <h4>Muertos</h4>
+                            <h4 id="muertosGlobales" class="text-white"></h4>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <h4>Recuperados</h4>
+                            <h4 id="recumeradosGlobales" class="text-white"></h4>
+                        </div>
+                    </div>
+                </div>
+                <form action="" id="cobid-19" class="needs-validation">
+                    <div class="input-group md-form form-sm form-2 pl-0">
+                        <input class="form-control my-0 py-1 dark-border" id="buscador" type="text" placeholder="Search" aria-label="Search">
+                        <div class="input-group-append">
+                          <span class="input-group-text black lighten-3 btn-dark" id="btnBuscar"><i class="fas fa-search text-black"
+                              aria-hidden="true"></i></span>
+                        </div>
+                      </div>
+                      <div class="tablas" data-spy="scroll">
+                        <table id="table" class="table table-hover table-sm table-dark table-striped table-bordered " cellspacing="0" width="100%">
+                            <thead class="black white-text">
+                              <tr>
+                                <th scope="col">Numero</th>
+                                <th scope="col">Pais</th>
+                                <th scope="col">Infectados</th>
+                                <th scope="col">Recuperados</th>
+                                <th scope="col">Muertos</th>
+                                <th scope="col">Activos</th>
+                              </tr>
+                            </thead>
+                            <tbody id="tbody">
+                            </tbody>
+                          </table>
+                      </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <script src="app.js"></script>
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.1/js/mdb.min.js"></script>
+</body>
+
+</html>
