@@ -3,7 +3,6 @@ document.getElementById('table').addEventListener('click', clickTabla);
 
 function mostrarPais(data) {
     console.log(data);
-
     document.getElementById('pais').innerText = data.country
     document.getElementById('paisFoto').src  = data.countryInfo["flag"];
     document.getElementById('muertos').innerText = data.deaths;
@@ -11,8 +10,6 @@ function mostrarPais(data) {
     document.getElementById('recumerados').innerText = data.recovered;
     document.getElementById('critico').innerText = data.critical;
     document.getElementById('muerteReportada').innerText = + data.todayCases;
-
-    
 }
 
 function mostrarTable(data) {
@@ -27,12 +24,10 @@ function mostrarTable(data) {
                     <td>${pais.active}</td>
                 </tr>`; 
     });
-    dd = data;
     document.getElementById('tbody').innerHTML = html;    
 }
 
 function cargarInfeccion(url = "https://corona.lmao.ninja/countries") {
-
     fetch(url)
       .then(function(res) {
         return res.json();
@@ -44,7 +39,6 @@ function cargarInfeccion(url = "https://corona.lmao.ninja/countries") {
           console.log(error);
       });
   }
-
 
 function cargarInfeccion2(url,callback = (data)) {
   fetch(url)
@@ -73,7 +67,7 @@ function clickTabla() {
       
     rows.forEach( row => {
       row.onclick = function() {
-        let urlx = 'https://corona.lmao.ninja/countries/';
+        let urlx = "https://corona.lmao.ninja/countries/";
         urlx += this.innerText;
 
         getDatosAsync(urlx)
@@ -101,12 +95,9 @@ function procesar() {
 
   getDatosAsync('https://coronavirus-19-api.herokuapp.com/all')
     .then(data2 => modificarCasosGlobales(data2));
-
 }
 
 function initApp() {
   cargarInfeccion();
-  // cargarInfeccion2('https://corona.lmao.ninja/countries/Dominican Republic',mostrarPais(data));
   procesar();
-
 }
