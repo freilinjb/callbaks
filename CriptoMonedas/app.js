@@ -1,6 +1,20 @@
 const cotizador = new Cotizador();
 const ui = new Interfaz();
 
+const formulario = document.getElementById("formulario");
+//Event Listener cuando se envia el formulario
+
+formulario.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const monedaSelect = document.getElementById('moneda');
+    const monedaSeleccionada = monedaSelect.options[monedaSelect.selectedIndex].value;
+
+    console.log(monedaSeleccionada);
+    
+});
+
+
 // const cotizador = new Cotizador()
 
 
