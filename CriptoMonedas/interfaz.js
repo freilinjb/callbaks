@@ -14,14 +14,10 @@ class Interfaz {
                 console.log(arregloMonedas);
                 
                 const select = document.getElementById('croptomoneda');
-                let html = '';
                 //construir SELECT desde la REST API
 
                 arregloMonedas.forEach(moneda => {
                     //Añadir el ID y el valor despues asignarlo al select 
-                    console.log(moneda.CoinInfo.Name);
-                    
-
                     const option = document.createElement('option');
                     option.value = moneda.CoinInfo.Name;
                     option.appendChild(document.createTextNode(moneda.CoinInfo.FullName));
@@ -29,5 +25,6 @@ class Interfaz {
                     select.appendChild(option);
                 });                
             })
+            .catch(error => console.log('Error al cargar los datos SELECT criptomonedas'));
     }
 }
