@@ -23,7 +23,8 @@ function formulario(e){
       //Todo correcto, tomar valores del select y ejecutar la busqueda
       cotizador.obtenerValores(monedaSeleccionada, criptomonedaleccionada)
         .then(data => {
-          console.log(data.resultado);
+          // console.log(data.resultado);
+          ui.mostrarResultado(data.resultado, monedaSeleccionada.toLowerCase());
         })
         .catch(error => console.log(error))
     }

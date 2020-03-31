@@ -15,7 +15,6 @@ class Interfaz {
                 
                 const select = document.getElementById('criptomoneda');
                 //construir SELECT desde la REST API
-                console.log(arregloMonedas);
                 
                 arregloMonedas.forEach(moneda => {
                     //Añadir el ID y el valor despues asignarlo al select 
@@ -29,8 +28,6 @@ class Interfaz {
             .catch(error => console.log('Error al cargar los datos SELECT criptomonedas'));
     }
     mostrarMensaje(mensaje, clases) {
-        console.log(`Mensaje: ${mensaje}`);
-        console.log(`clases: ${clases}`);
         
         const div = document.createElement("div");
         div.className = clases;
@@ -47,5 +44,23 @@ class Interfaz {
 
     mostrarResultado(resultado, moneda) {
 
+        const monedaN = document.getElementById("moneda").value;
+        const criptomoneda = document.getElementById("criptomoneda").value;
+
+        // const valor = resultado[monedaN.toLowerCase()];
+
+        console.log(monedaN);
+        console.log(`Resultado criptomoneda: ${resultado[criptomoneda.toUpperCase()]}`);
+        console.log(`Resultado moneda: ${resultado[monedaN.toUpperCase()]}`);
+
+        let templateHTML = ` <div class="card cyan bg-dark">
+                                <div class="card-content white-text">
+                                    <span class="card-title">Resultado: </span>
+                                    <p>El precio de ${resultado[criptomoneda]} a moneda ${resultado[criptomoneda.toUpperCase()]} es de: $${resultado[criptomoneda.toUpperCase()]}</p>
+                                </div>
+                            </div>`;
+        
+        
+        document.querySelector("#resultado").innerHTML = templateHTML;
     }
 }
