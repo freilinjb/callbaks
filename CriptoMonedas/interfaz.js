@@ -8,6 +8,7 @@ class Interfaz {
     }
 
     construirSelect() {
+
         cotizador.obtenerMonedasAPI()
             .then(monedas => {
                 const arregloMonedas = monedas.monedas.Data;
@@ -57,14 +58,29 @@ class Interfaz {
         console.log(`Resultado criptomoneda: ${resultado[criptomoneda.toUpperCase()]}`);
         console.log(`Resultado moneda: ${resultado[monedaN.toUpperCase()]}`);
 
-        let templateHTML = ` <div class="card cyan bg-info p-2 m-3 shadow">
+        let templateHTML = ` <div class="card cyan bg-info p-2 mt-3 shadow">
                                 <div class="card-content white-text">
                                     <span class="card-title">Resultado: </span>
                                     <p>El precio de ${monedaN} a moneda ${criptomoneda} es de: $${resultado[criptomoneda][monedaN]}</p>
                                 </div>
                             </div>`;
         
+        //Muestra el spinner
+        this.mostrarSpinner();
+
+        setTimeout(() => {
+            document.querySelector("#resultado").innerHTML = templateHTML;
+            document.querySelector(".spinner-border").remove();
+        }, 2000);
+    }
+
+    mostrarSpinner() {
+        const div = document.createElement("div");
+        div.className = "spinner-border text-primary m-3";
+        div.innerHTML = `<span class="sr-only">Loading...</span>`;
+        console.log(div);
         
-        document.querySelector("#resultado").innerHTML = templateHTML;
+        
+        document.querySelector("#spinner").appendChild(div);
     }
 }
