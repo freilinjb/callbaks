@@ -44,4 +44,8 @@ class Interfaz {
             document.querySelector(".mensajes div").remove();
         }, 2000);
     }
+
+    mostrarResultado(resultado, moneda) {
+
+    }
 }

@@ -20,7 +20,12 @@ function formulario(e){
       ui.mostrarMensaje("Ambos campos son obligatorios","bg-warning text-danger text-center card-panel m-3 p-2");
     }
     else {
-      console.log(`Cotizar`);
+      //Todo correcto, tomar valores del select y ejecutar la busqueda
+      cotizador.obtenerValores(monedaSeleccionada, criptomonedaleccionada)
+        .then(data => {
+          console.log(data.resultado);
+        })
+        .catch(error => console.log(error))
     }
 }
 

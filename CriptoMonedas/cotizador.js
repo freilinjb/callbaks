@@ -9,4 +9,13 @@ class Cotizador {
             monedas
         }
     }
+    async obtenerValores(moneda, criptomoneda) {
+        const urlConvertir = await fetch(`https://min-api.cryptocompare.com/data/pricemulti?fsyms=${criptomoneda}&tsyms=${moneda}`);
+
+        const resultado = await urlConvertir.json();
+
+        return {
+            resultado
+        }
+    }
 }
