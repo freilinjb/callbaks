@@ -2,8 +2,8 @@
 const cotizador = new Cotizador();
 const ui = new Interfaz();
 //Event Listener cuando se envia el formulario
-
-function formulario(e) {
+document.getElementById("formulario").addEventListener("submit", formulario);
+function formulario(e){
 
     e.preventDefault();
 
@@ -14,9 +14,14 @@ function formulario(e) {
 
     const criptomonedaSelect = document.getElementById('criptomoneda');
     const criptomonedaleccionada = criptomonedaSelect.options[criptomonedaSelect.selectedIndex].value;
-
-    console.log(criptomonedaleccionada);
+    console.log('Cargando datos');
     
+    if(monedaSeleccionada === '' || criptomonedaleccionada === '') {
+      console.log(`Faltan datos`);
+    }
+    else {
+      console.log(`Cotizar`);
+    }
 }
 
 (function() {
@@ -31,7 +36,7 @@ function formulario(e) {
             event.preventDefault();
             event.stopPropagation();
           } else {
-              document.getElementById('formulario').addEventListener("submit", formulario);
+                console.log('validado');
           }
           form.classList.add('was-validated');
         }, false);

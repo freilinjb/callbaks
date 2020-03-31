@@ -13,9 +13,10 @@ class Interfaz {
                 const arregloMonedas = monedas.monedas.Data;
                 console.log(arregloMonedas);
                 
-                const select = document.getElementById('croptomoneda');
+                const select = document.getElementById('criptomoneda');
                 //construir SELECT desde la REST API
-
+                console.log(arregloMonedas);
+                
                 arregloMonedas.forEach(moneda => {
                     //Añadir el ID y el valor despues asignarlo al select 
                     const option = document.createElement('option');
