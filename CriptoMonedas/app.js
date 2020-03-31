@@ -14,10 +14,12 @@ function formulario(e){
 
     const criptomonedaSelect = document.getElementById('criptomoneda');
     const criptomonedaleccionada = criptomonedaSelect.options[criptomonedaSelect.selectedIndex].value;
-    console.log('Cargando datos');
+     // console.log('Cargando datos');
     
     if(monedaSeleccionada === '' || criptomonedaleccionada === '') {
-      console.log(`Faltan datos`);
+      // console.log(`Faltan datos`);
+      //Imprimir alerta
+      ui.mostrarMensaje('Ambos campos son obligatorios','deep-dragen darken-4 card-panel');
     }
     else {
       console.log(`Cotizar`);
