@@ -1,4 +1,3 @@
-const formulario = document.getElementById("cobid-19");
 document.getElementById('table').addEventListener('click', clickTabla);
 
 function mostrarPais(data) {
