@@ -48,15 +48,19 @@ class Interfaz {
         const criptomoneda = document.getElementById("criptomoneda").value;
 
         // const valor = resultado[monedaN.toLowerCase()];
+        console.log(monedaN);
+        console.log(criptomoneda);
+        console.log(resultado[criptomoneda]);
+        
 
         console.log(monedaN);
         console.log(`Resultado criptomoneda: ${resultado[criptomoneda.toUpperCase()]}`);
         console.log(`Resultado moneda: ${resultado[monedaN.toUpperCase()]}`);
 
-        let templateHTML = ` <div class="card cyan bg-dark">
+        let templateHTML = ` <div class="card cyan bg-info p-2 m-3 shadow">
                                 <div class="card-content white-text">
                                     <span class="card-title">Resultado: </span>
-                                    <p>El precio de ${resultado[criptomoneda]} a moneda ${resultado[criptomoneda.toUpperCase()]} es de: $${resultado[criptomoneda.toUpperCase()]}</p>
+                                    <p>El precio de ${monedaN} a moneda ${criptomoneda} es de: $${resultado[criptomoneda][monedaN]}</p>
                                 </div>
                             </div>`;
         
