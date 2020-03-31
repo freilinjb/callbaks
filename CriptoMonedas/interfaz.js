@@ -39,5 +39,9 @@ class Interfaz {
 
         const divMensaje = document.querySelector(".mensajes");
         divMensaje.appendChild(div);
+
+        setTimeout(() => {
+            document.querySelector(".mensajes div").remove();
+        }, 2000);
     }
 }

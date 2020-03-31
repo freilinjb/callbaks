@@ -10,8 +10,6 @@ function formulario(e){
     const monedaSelect = document.getElementById('moneda');
     const monedaSeleccionada = monedaSelect.options[monedaSelect.selectedIndex].value;
 
-    console.log(monedaSeleccionada);
-
     const criptomonedaSelect = document.getElementById('criptomoneda');
     const criptomonedaleccionada = criptomonedaSelect.options[criptomonedaSelect.selectedIndex].value;
      // console.log('Cargando datos');
@@ -19,7 +17,7 @@ function formulario(e){
     if(monedaSeleccionada === '' || criptomonedaleccionada === '') {
       // console.log(`Faltan datos`);
       //Imprimir alerta
-      ui.mostrarMensaje('Ambos campos son obligatorios','deep-dragen darken-4 card-panel');
+      ui.mostrarMensaje("Ambos campos son obligatorios","bg-warning text-danger text-center card-panel m-3 p-2");
     }
     else {
       console.log(`Cotizar`);
